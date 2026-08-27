@@ -50,6 +50,16 @@ flowchart TB
 
 **`project-control` はfeature branchではなく、`main`へmergeしません。**
 
+### Project Controlは誰が更新する？
+
+**通常のWriterはChatGPTです。** HumanがProject ControlのMarkdownを手作業で保守することは標準運用にしません。
+
+- Human: 事実、判断、訂正、方針を示し、必要なHuman Gateで承認する
+- ChatGPT: Humanの指示・承認と確認済み事実を、正本関係と現在地を保った形でProject Controlへ反映する
+- Implementation Agent: Project Controlを直接読まない・変更しない
+
+Humanは内容に対する最終的なauthorityを持ちますが、通常はProject Control文書を直接編集しません。ChatGPTからGitHubへ直接writeできない環境では、ChatGPTが更新案を作成し、Humanはその内容を機械的に反映します。
+
 ## 使い方の具体例
 
 ### 例: 3か月続く個人開発
@@ -122,6 +132,7 @@ Human Gateなど、初期化に本当に必要な情報だけを私に質問し�
 
 回答後、project_charter.md と CURRENT.md を初期化し、
 CURRENT.md の implementation_ref を現在の main commit SHA に合わせてください。
+Project Controlの通常のWriterはChatGPTとし、Humanは内容の指示・訂正・承認を行います。
 Project Controlの更新は project-control branch だけで行い、main へmergeしないでください。
 ```
 
