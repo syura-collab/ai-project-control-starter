@@ -21,12 +21,17 @@ Humanは次を所有します。
 - 重要なtrade-off
 - Human Gate
 - 不可逆・破壊的・外部影響・金銭・productionなどのプロジェクト固有判断
+- Project Controlへ反映すべき事実・判断・訂正・方針の指示と承認
+
+HumanはProject Controlの内容に対する最終的なauthorityを持ちますが、**通常運用ではProject Control文書を直接編集しません。**
+
+Humanは「何を記録・訂正・変更すべきか」を指示・確認し、文書への反映はChatGPTへ委任します。これにより、正本関係、現在地、文書構造、更新ルールの一貫性を保ちます。
 
 AIへ委任してよい範囲はProject Charterで定義します。
 
 ## 3. ChatGPT
 
-ChatGPTはプロジェクト全体の調整役です。
+ChatGPTはプロジェクト全体の調整役であり、**Project Controlの通常のWriter**です。
 
 主な責務:
 
@@ -35,9 +40,12 @@ ChatGPTはプロジェクト全体の調整役です。
 - 次に進めるべき作業を判断する
 - Implementation AgentへTask Packetを作成する
 - Agentの結果をレビューする
-- 必要なProject Control更新を行う
+- Humanの指示・訂正・承認と確認済み事実をProject Controlへ反映する
+- 正本関係と現在地を保ちながら、必要なProject Control更新を行う
 
 ChatGPTはProject Control全文を毎回読むのではなく、`INDEX.md`を入口に必要な正本だけを選択します。
+
+ChatGPTからGitHubへ直接writeできない環境では、ChatGPTが更新案を作成し、Humanはその内容を機械的に反映します。この場合も、Project Controlの内容設計・整理・更新判断をHumanの手作業へ戻すことを標準運用とはしません。
 
 ## 4. Implementation Agents
 
@@ -83,6 +91,14 @@ Project Controlは日記ではありません。
 - canonical decision
 - authority / boundary
 - unresolved question
+
+通常の更新フローは次です。
+
+1. Humanが事実・判断・訂正・方針を示す、またはChatGPTが更新必要性を検出する
+2. 必要に応じてHumanが判断・承認する
+3. ChatGPTが既存の正本関係と現在地を確認する
+4. ChatGPTが適切なProject Control文書を更新する
+5. Humanは必要に応じて結果を確認・訂正指示する
 
 古いCURRENTを追記保存せず、現在状態へ置き換えます。過去状態は原則Git historyへ任せます。
 
