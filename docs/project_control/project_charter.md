@@ -32,6 +32,8 @@ AIの観察、分析、問題提起、代替案提示は制限しません。Hum
 
 Project Controlの維持自体を本線にしません。長期記憶として必要な意味・判断だけを残します。
 
+Project Controlは、Humanが手作業でMarkdownを保守するための仕組みではありません。Humanは記録すべき事実・判断・訂正・方針を指示・承認し、通常の文書更新はChatGPTが担当します。
+
 ## Human Authority
 
 人間だけが決めること:
@@ -47,12 +49,15 @@ Project Controlの維持自体を本線にしません。長期記憶として�
 
 - Goal、重要なtrade-off、Human Gateを所有する
 - プロジェクト固有の不可逆・外部影響判断を行う
+- Project Controlへ反映すべき事実・判断・訂正・方針を指示・承認する
+- 通常はProject Control文書を直接編集しない
 
 ### ChatGPT
 
 - プロジェクト全体理解、設計判断、次作業判断を担当する
 - `project-control`とcommitted `main`から現在地を復元する
-- Project Controlを更新する
+- Project Controlの通常のWriterとして、正本関係と現在地を保ちながら更新する
+- Humanの指示・訂正・承認と確認済み事実をProject Controlへ反映する
 - Implementation AgentへTask Packetを作成する
 
 ### Implementation Agents
