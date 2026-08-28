@@ -27,7 +27,7 @@
 
 ## Restart Point
 
-<次のChatGPTチャットが、再調査を最小化してどこから再開すべきか。>
+<次のChatGPTチャットが、過去conversation全文を必要とせず、再調査を最小化してどこから再開すべきか。>
 
 ## Confirmed Outcomes
 
