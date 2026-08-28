@@ -13,6 +13,10 @@
 
 `project-control` はfeature branchではなく、`main`へmergeしません。
 
+Projectの継続性は、特定のChatGPT conversationに依存しません。conversationは一時的な作業セッションであり、長期的な意味・判断・現在地はProject Controlが保持します。
+
+新しいconversationでは`INDEX.md` → `CURRENT.md`から状態を復元し、過去conversation全文の再投入を前提としません。conversationを跨ぐためだけのhandoff文書やsession logを増やさず、再開に必要な現在状態は`CURRENT.md`へ統合します。
+
 ## 2. Human
 
 Humanは次を所有します。
@@ -69,7 +73,7 @@ Task PacketはProject Controlのコピーではありません。
 
 - Goal
 - Scope
-- Non-goals
+- Non-goals（必要な場合のみ）
 - Canonical facts
 - Constraints
 - Human Gates
